@@ -3,24 +3,24 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>RunClaw — Your AI Marketing Team. Deployed, Trained, Running.</title>
-  <meta name="description" content="RunClaw deploys AI marketing agents that handle social media, content creation, and engagement across every platform. Book an onboarding call today.">
-  <meta name="keywords" content="AI marketing agent, social media automation, AI content creation, OpenClaw deployment, marketing automation">
+  <title>RunClaw — We Built an AI Marketing Agent. Now We'll Build Yours.</title>
+  <meta name="description" content="Meet Gary — a real AI marketing agent that posts, engages, and grows audiences daily. RunClaw builds custom AI agents for founders, agencies, and teams. Book a call.">
+  <meta name="keywords" content="AI marketing agent, social media automation, AI content creation, OpenClaw deployment, marketing automation, AI social media agent">
   <meta name="author" content="RunClaw — A CODE&SOUL company">
   <link rel="canonical" href="https://runclaw.co">
 
   <!-- Open Graph -->
   <meta property="og:type" content="website">
   <meta property="og:url" content="https://runclaw.co">
-  <meta property="og:title" content="RunClaw — Your AI Marketing Team. Deployed, Trained, Running.">
-  <meta property="og:description" content="AI marketing agents that handle social media, content, and engagement across every platform. Deployed and operated by a team whose own agents are already working in production.">
+  <meta property="og:title" content="RunClaw — We Built an AI Marketing Agent. Now We'll Build Yours.">
+  <meta property="og:description" content="Meet Gary — our AI agent that runs real social media ops every day. We'll build one for your brand too.">
   <meta property="og:image" content="https://pub-debd1c0b305145b7885960d958419d52.r2.dev/runclaw/logo/runclaw-combo-orange-final.png">
   <meta property="og:site_name" content="RunClaw">
 
   <!-- Twitter -->
   <meta name="twitter:card" content="summary_large_image">
-  <meta name="twitter:title" content="RunClaw — Your AI Marketing Team. Deployed, Trained, Running.">
-  <meta name="twitter:description" content="AI marketing agents that handle social media, content, and engagement across every platform.">
+  <meta name="twitter:title" content="RunClaw — We Built an AI Marketing Agent. Now We'll Build Yours.">
+  <meta name="twitter:description" content="Meet Gary — our AI agent that runs real social media ops every day. We'll build one for your brand too.">
   <meta name="twitter:image" content="https://pub-debd1c0b305145b7885960d958419d52.r2.dev/runclaw/logo/runclaw-combo-orange-final.png">
 
   <!-- Favicon -->
@@ -29,7 +29,7 @@
   <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800;900&family=JetBrains+Mono:wght@400;500;600;700&display=swap" rel="stylesheet">
 
   <!-- Tailwind CDN -->
   <script src="https://cdn.tailwindcss.com"></script>
@@ -61,22 +61,23 @@
   <style>
     html { background-color: #0D0D0D; }
 
+    /* Fade-in animations */
     .fade-in {
       opacity: 0;
-      transform: translateY(24px);
-      transition: opacity 0.6s ease-out, transform 0.6s ease-out;
+      transform: translateY(30px);
+      transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1), transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
     }
     .fade-in.visible {
       opacity: 1;
       transform: translateY(0);
     }
 
+    /* Header */
     .header-scrolled {
-      background-color: rgba(13, 13, 13, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 107, 43, 0.15);
+      background-color: rgba(13, 13, 13, 0.92);
+      backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 107, 43, 0.12);
     }
-
     .header-cta {
       opacity: 0;
       transform: scale(0.9);
@@ -89,36 +90,200 @@
       pointer-events: auto;
     }
 
+    /* Animated gradient orbs */
+    .orb {
+      position: absolute;
+      border-radius: 50%;
+      filter: blur(80px);
+      opacity: 0.15;
+      animation: orbFloat 20s ease-in-out infinite;
+      pointer-events: none;
+    }
+    .orb-orange {
+      background: radial-gradient(circle, #FF6B2B, transparent 70%);
+    }
+    .orb-green {
+      background: radial-gradient(circle, #00D68F, transparent 70%);
+    }
+    .orb-blue {
+      background: radial-gradient(circle, #3B82F6, transparent 70%);
+    }
+    @keyframes orbFloat {
+      0%, 100% { transform: translate(0, 0) scale(1); }
+      25% { transform: translate(30px, -40px) scale(1.1); }
+      50% { transform: translate(-20px, 20px) scale(0.95); }
+      75% { transform: translate(40px, 10px) scale(1.05); }
+    }
+
+    /* Glass card */
+    .glass-card {
+      background: rgba(30, 41, 59, 0.5);
+      backdrop-filter: blur(12px);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      transition: border-color 0.3s ease, transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .glass-card:hover {
+      border-color: rgba(255, 107, 43, 0.3);
+      transform: translateY(-2px);
+      box-shadow: 0 8px 32px rgba(255, 107, 43, 0.08);
+    }
+
+    /* Glow card */
+    .glow-card {
+      position: relative;
+      background: rgba(13, 13, 13, 0.8);
+      border: 1px solid rgba(148, 163, 184, 0.1);
+      transition: border-color 0.3s ease, transform 0.3s ease;
+    }
+    .glow-card:hover {
+      border-color: rgba(255, 107, 43, 0.4);
+      transform: translateY(-3px);
+    }
+    .glow-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: inherit;
+      padding: 1px;
+      background: linear-gradient(135deg, transparent, rgba(255, 107, 43, 0.2), transparent);
+      mask: linear-gradient(#fff 0 0) content-box, linear-gradient(#fff 0 0);
+      mask-composite: exclude;
+      -webkit-mask-composite: xor;
+      opacity: 0;
+      transition: opacity 0.3s ease;
+      pointer-events: none;
+    }
+    .glow-card:hover::before {
+      opacity: 1;
+    }
+
+    /* Terminal component */
+    .terminal {
+      background: rgba(13, 13, 13, 0.95);
+      border: 1px solid rgba(0, 214, 143, 0.2);
+      box-shadow: 0 0 40px rgba(0, 214, 143, 0.05), inset 0 0 40px rgba(0, 214, 143, 0.02);
+      font-family: 'JetBrains Mono', monospace;
+    }
+    .terminal-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+    }
+    .terminal-line {
+      opacity: 0;
+      transform: translateX(-10px);
+      transition: opacity 0.4s ease, transform 0.4s ease;
+    }
+    .terminal-line.typed {
+      opacity: 1;
+      transform: translateX(0);
+    }
+    @keyframes blink {
+      0%, 50% { opacity: 1; }
+      51%, 100% { opacity: 0; }
+    }
+    .cursor-blink {
+      animation: blink 1s step-end infinite;
+    }
+
+    /* Stats counter */
+    .stat-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      color: #00D68F;
+    }
+
+    /* Timeline */
+    .timeline-line {
+      position: absolute;
+      left: 20px;
+      top: 40px;
+      bottom: 0;
+      width: 2px;
+      background: linear-gradient(to bottom, #FF6B2B, rgba(255, 107, 43, 0.1));
+    }
+    .timeline-dot {
+      width: 12px;
+      height: 12px;
+      border-radius: 50%;
+      background: #FF6B2B;
+      border: 2px solid #0D0D0D;
+      position: absolute;
+      left: 15px;
+      top: 4px;
+      z-index: 1;
+    }
+    @keyframes pulse-dot {
+      0%, 100% { box-shadow: 0 0 0 0 rgba(255, 107, 43, 0.4); }
+      50% { box-shadow: 0 0 0 8px rgba(255, 107, 43, 0); }
+    }
+    .timeline-dot-active {
+      animation: pulse-dot 2s ease-in-out infinite;
+    }
+
+    /* CTA button glow */
+    .btn-glow {
+      position: relative;
+      overflow: hidden;
+      transition: transform 0.2s ease, box-shadow 0.3s ease;
+    }
+    .btn-glow:hover {
+      transform: translateY(-1px);
+      box-shadow: 0 4px 24px rgba(255, 107, 43, 0.4);
+    }
+
+    /* FAQ */
     details summary::-webkit-details-marker { display: none; }
     details summary { list-style: none; }
     details[open] summary .faq-chevron { transform: rotate(180deg); }
     .faq-chevron { transition: transform 0.2s ease; }
 
-    .cycle-card {
-      border: 1px solid #1E293B;
-      transition: border-color 0.2s ease;
+    /* Step number */
+    .step-number {
+      font-family: 'JetBrains Mono', monospace;
+      font-size: 5rem;
+      font-weight: 700;
+      line-height: 1;
+      background: linear-gradient(180deg, rgba(255, 107, 43, 0.25) 0%, rgba(255, 107, 43, 0.03) 100%);
+      -webkit-background-clip: text;
+      -webkit-text-fill-color: transparent;
+      background-clip: text;
     }
-    .cycle-card:hover {
-      border-color: #FF6B2B;
+
+    /* Section divider gradient */
+    .section-glow {
+      position: relative;
+      overflow: hidden;
+    }
+    .section-glow::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 600px;
+      height: 1px;
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 43, 0.3), transparent);
     }
   </style>
 </head>
-<body class="bg-claw-black text-off-white font-sans antialiased">
+<body class="bg-claw-black text-off-white font-sans antialiased leading-relaxed overflow-x-hidden">
 
   <!-- ======== HEADER ======== -->
   <header id="site-header" class="fixed top-0 left-0 right-0 z-50 transition-all duration-300">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 py-4 flex items-center justify-between">
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8 py-4 flex items-center justify-between">
       <a href="/" class="flex items-center gap-2 shrink-0">
         <img src="https://pub-debd1c0b305145b7885960d958419d52.r2.dev/runclaw/logo/runclaw-wordmark-dark-final.png" alt="RunClaw" class="h-8 sm:h-9">
       </a>
       <nav class="hidden md:flex items-center gap-8 text-sm text-cool-gray">
+        <a href="#gary" class="hover:text-off-white transition-colors">Meet Gary</a>
         <a href="#problem" class="hover:text-off-white transition-colors">Problem</a>
         <a href="#solution" class="hover:text-off-white transition-colors">Solution</a>
         <a href="#how-it-works" class="hover:text-off-white transition-colors">How it works</a>
         <a href="#faq" class="hover:text-off-white transition-colors">FAQ</a>
       </nav>
       <div class="flex items-center gap-3">
-        <a href="#booking" id="header-cta" class="header-cta inline-flex items-center gap-2 bg-run-orange text-claw-black font-semibold text-sm px-5 py-2.5 rounded-lg hover:brightness-110 transition-all">
+        <a href="#booking" id="header-cta" class="header-cta inline-flex items-center gap-2 bg-run-orange text-claw-black font-semibold text-sm px-5 py-2.5 rounded-lg btn-glow">
           Book a call
         </a>
         <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-cool-gray hover:text-off-white transition-colors" aria-label="Menu">
@@ -126,310 +291,337 @@
         </button>
       </div>
     </div>
-    <!-- Mobile nav -->
-    <nav id="mobile-menu" class="md:hidden hidden bg-claw-black/95 backdrop-blur-lg border-t border-cool-gray/10 px-4 py-6">
+    <nav id="mobile-menu" class="md:hidden hidden bg-claw-black/95 backdrop-blur-lg border-t border-cool-gray/10 px-6 py-6">
       <div class="flex flex-col gap-4 text-base text-cool-gray">
+        <a href="#gary" class="mobile-nav-link hover:text-off-white transition-colors py-1">Meet Gary</a>
         <a href="#problem" class="mobile-nav-link hover:text-off-white transition-colors py-1">Problem</a>
         <a href="#solution" class="mobile-nav-link hover:text-off-white transition-colors py-1">Solution</a>
         <a href="#how-it-works" class="mobile-nav-link hover:text-off-white transition-colors py-1">How it works</a>
         <a href="#faq" class="mobile-nav-link hover:text-off-white transition-colors py-1">FAQ</a>
-        <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-sm px-6 py-3 rounded-lg hover:brightness-110 transition-all mt-2">Book a call</a>
+        <a href="#booking" class="mobile-nav-link inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-sm px-6 py-3 rounded-lg mt-2">Book a call</a>
       </div>
     </nav>
   </header>
 
   <!-- ======== HERO ======== -->
-  <section class="relative min-h-screen flex items-center pt-20 pb-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+  <section class="relative min-h-screen flex items-center pt-24 pb-20 overflow-hidden">
+    <!-- Orbs -->
+    <div class="orb orb-orange w-[500px] h-[500px] -top-48 -right-48" style="animation-delay: 0s;"></div>
+    <div class="orb orb-green w-[400px] h-[400px] bottom-0 -left-32" style="animation-delay: -7s;"></div>
+    <div class="orb orb-blue w-[300px] h-[300px] top-1/3 right-1/4" style="animation-delay: -14s; opacity: 0.08;"></div>
+
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8 w-full relative z-10">
       <div class="max-w-3xl">
-        <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide">// AI marketing agents, deployed &amp; operated</p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
-          Your AI marketing team.<br>
-          <span class="text-run-orange">Deployed, trained, running.</span>
+        <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide fade-in">// proof, not promises</p>
+        <h1 class="text-4xl sm:text-5xl lg:text-[3.5rem] xl:text-6xl font-black leading-[1.1] tracking-tight mb-8 fade-in">
+          We built an AI agent that runs our entire social media.<br>
+          <span class="text-run-orange">Now we'll build yours.</span>
         </h1>
-        <p class="text-lg sm:text-xl text-cool-gray leading-relaxed mb-10 max-w-2xl">
-          Always-on AI agents that handle your social media, content creation, and engagement across every platform — so you focus on growing your business, not feeding the algorithm.
+        <p class="text-lg sm:text-xl text-cool-gray leading-relaxed mb-10 max-w-2xl fade-in" style="line-height: 1.75;">
+          Meet Gary — our AI marketing agent that posts, engages, and grows audiences across platforms. Every day. Without us lifting a finger.
         </p>
-        <div class="flex flex-col sm:flex-row gap-4 mb-12">
-          <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-8 py-4 rounded-lg hover:brightness-110 transition-all">
+        <div class="flex flex-col sm:flex-row gap-4 mb-14 fade-in">
+          <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-8 py-4 rounded-lg btn-glow">
             <i data-lucide="calendar" class="w-5 h-5"></i>
             Book a call
           </a>
-          <a href="#solution" class="inline-flex items-center justify-center gap-2 border border-cool-gray/30 text-off-white font-semibold text-base px-8 py-4 rounded-lg hover:border-cool-gray/60 transition-all">
-            See how it works
+          <a href="#gary" class="inline-flex items-center justify-center gap-2 border border-cool-gray/30 text-off-white font-semibold text-base px-8 py-4 rounded-lg hover:border-run-orange/50 hover:bg-run-orange/5 transition-all">
+            See Gary in action
             <i data-lucide="arrow-down" class="w-4 h-4"></i>
           </a>
         </div>
-        <p class="text-sm text-cool-gray font-mono">
-          <span class="text-terminal-green mr-2">&#9679;</span> Built by operators whose own AI agents handle real work every day.
+        <div class="flex items-center gap-6 text-sm text-cool-gray font-mono fade-in">
+          <span class="flex items-center gap-2"><span class="text-terminal-green">●</span> Running in production</span>
+          <span class="hidden sm:flex items-center gap-2"><span class="text-terminal-green">●</span> Real results, daily</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== GARY CASE STUDY ======== -->
+  <section id="gary" class="py-24 sm:py-32 section-glow">
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8">
+      <div class="fade-in max-w-3xl mb-16">
+        <p class="font-mono text-terminal-green text-sm mb-4 tracking-wide">// the proof</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
+          Gary: Our AI Marketing Agent
+        </h2>
+        <p class="text-cool-gray text-lg" style="line-height: 1.75;">
+          Gary isn't a concept. He's a real agent running real marketing operations for our founder's brand — every single day. Here's what a typical day looks like.
+        </p>
+      </div>
+
+      <!-- Terminal Activity Feed -->
+      <div class="fade-in mb-16">
+        <div class="terminal rounded-2xl overflow-hidden max-w-3xl">
+          <div class="flex items-center gap-2 px-5 py-3 border-b border-cool-gray/10">
+            <div class="terminal-dot bg-red-500/80"></div>
+            <div class="terminal-dot bg-yellow-500/80"></div>
+            <div class="terminal-dot bg-green-500/80"></div>
+            <span class="text-cool-gray text-xs ml-3 font-mono">gary-agent — daily activity log</span>
+          </div>
+          <div class="p-5 sm:p-6 text-sm sm:text-[0.9rem] space-y-3 min-h-[280px]" id="terminal-feed">
+            <div class="terminal-line"><span class="text-cool-gray">[09:00]</span> <span class="text-terminal-green">▶</span> <span class="text-off-white">Session started — scanning LinkedIn feed</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[09:12]</span> <span class="text-run-orange">📝</span> <span class="text-off-white">Published: "5 Signs You Need a Content System"</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[09:15]</span> <span class="text-terminal-green">👍</span> <span class="text-off-white">Liked 14 posts in feed</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[09:31]</span> <span class="text-electric-blue">💬</span> <span class="text-off-white">Commented on 3 posts — AI video, SaaS growth, GTM strategy</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[12:00]</span> <span class="text-run-orange">📊</span> <span class="text-off-white">Midday session: 15 likes, 4 comments, 3 connection requests sent</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[12:05]</span> <span class="text-terminal-green">📨</span> <span class="text-off-white">New DM from prospect — auto-replied with meeting link</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[15:00]</span> <span class="text-terminal-green">🔗</span> <span class="text-off-white">Sent 5 connection requests to ICP matches</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[15:20]</span> <span class="text-electric-blue">💬</span> <span class="text-off-white">Engaged on Threads — 8 likes, 2 replies</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[18:00]</span> <span class="text-run-orange">📋</span> <span class="text-off-white">Daily report sent to founder — 52 engagements today</span></div>
+            <div class="terminal-line"><span class="text-cool-gray">[18:01]</span> <span class="text-terminal-green">✓</span> <span class="text-off-white">All sessions complete. Signing off.<span class="cursor-blink text-terminal-green ml-1">█</span></span></div>
+          </div>
+        </div>
+      </div>
+
+      <!-- Stats -->
+      <div class="grid grid-cols-2 lg:grid-cols-4 gap-6 fade-in">
+        <div class="glass-card rounded-2xl p-6 sm:p-8 text-center">
+          <div class="stat-number text-3xl sm:text-4xl mb-2" data-target="200" data-suffix="+">0</div>
+          <p class="text-cool-gray text-sm">engagements per week</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6 sm:p-8 text-center">
+          <div class="stat-number text-3xl sm:text-4xl mb-2" data-target="5" data-suffix="x">0</div>
+          <p class="text-cool-gray text-sm">posts per week</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6 sm:p-8 text-center">
+          <div class="stat-number text-3xl sm:text-4xl mb-2" data-target="4" data-suffix="">0</div>
+          <p class="text-cool-gray text-sm">daily sessions</p>
+        </div>
+        <div class="glass-card rounded-2xl p-6 sm:p-8 text-center">
+          <div class="stat-number text-3xl sm:text-4xl mb-2" data-target="3" data-suffix=" weeks">0</div>
+          <p class="text-cool-gray text-sm">zero to active engagement</p>
+        </div>
+      </div>
+
+      <!-- Summary -->
+      <div class="fade-in mt-12 glass-card rounded-2xl p-8 sm:p-10 max-w-3xl">
+        <p class="text-lg text-cool-gray" style="line-height: 1.8;">
+          Gary runs <span class="text-off-white font-semibold">4 LinkedIn sessions daily</span> (09:00, 12:00, 15:00, 18:00). He posts original content, likes 40–60 posts, writes 8–12 thoughtful comments, sends 5–10 connection requests, monitors DMs, and sends a daily report.
+          <span class="text-off-white font-semibold">Fully autonomous</span> — the founder just reviews and approves.
         </p>
       </div>
     </div>
   </section>
 
   <!-- ======== PROBLEM ======== -->
-  <section id="problem" class="py-20 sm:py-28 bg-slate-dark">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <section id="problem" class="py-24 sm:py-32 bg-slate-dark relative overflow-hidden">
+    <div class="orb orb-orange w-[400px] h-[400px] -top-32 -right-32" style="animation-delay: -5s; opacity: 0.08;"></div>
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8 relative z-10">
       <div class="fade-in max-w-3xl mb-16">
         <p class="font-mono text-run-orange text-sm mb-4 tracking-wide">// the problem</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Marketing is eating you alive.</h2>
-        <p class="text-cool-gray text-lg">Every founder and agency hits the same wall. You know you need to be everywhere — but there's never enough time to actually do it.</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">You know you should be posting.<br>But you're not.</h2>
+        <p class="text-cool-gray text-lg" style="line-height: 1.75;">Every founder and agency hits the same wall. Consistent social media drives growth — but who has the hours?</p>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+      <div class="grid sm:grid-cols-2 gap-6 max-w-4xl">
+        <div class="fade-in glow-card rounded-2xl p-7">
+          <div class="w-12 h-12 rounded-xl bg-run-orange/10 flex items-center justify-center mb-5">
             <i data-lucide="calendar-x" class="w-6 h-6 text-run-orange"></i>
           </div>
-          <h3 class="font-bold text-lg mb-2">Posting inconsistently</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">You go weeks without posting, then scramble to catch up. The algorithm punishes you every time.</p>
+          <h3 class="font-bold text-lg mb-3">No time to post consistently</h3>
+          <p class="text-cool-gray text-[0.95rem]" style="line-height: 1.75;">You go weeks without posting, then scramble to catch up. The algorithm punishes you every time.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in glow-card rounded-2xl p-7">
+          <div class="w-12 h-12 rounded-xl bg-run-orange/10 flex items-center justify-center mb-5">
             <i data-lucide="layers" class="w-6 h-6 text-run-orange"></i>
           </div>
-          <h3 class="font-bold text-lg mb-2">Can't keep up with multiple platforms</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">LinkedIn, X, Instagram, TikTok, Threads, Facebook — each one demands different content and constant attention.</p>
+          <h3 class="font-bold text-lg mb-3">Can't engage across platforms</h3>
+          <p class="text-cool-gray text-[0.95rem]" style="line-height: 1.75;">LinkedIn, Threads, X, Instagram — each demands different content and constant attention.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
-            <i data-lucide="message-square" class="w-6 h-6 text-run-orange"></i>
+        <div class="fade-in glow-card rounded-2xl p-7">
+          <div class="w-12 h-12 rounded-xl bg-run-orange/10 flex items-center justify-center mb-5">
+            <i data-lucide="user-x" class="w-6 h-6 text-run-orange"></i>
           </div>
-          <h3 class="font-bold text-lg mb-2">No time for engagement</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">Likes, comments, connection requests, DMs — engagement drives growth, but who has the hours?</p>
+          <h3 class="font-bold text-lg mb-3">Hired help that underperforms</h3>
+          <p class="text-cool-gray text-[0.95rem]" style="line-height: 1.75;">Social media managers burn out or miss the mark. Freelancers lose your voice after week two.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
-            <i data-lucide="lightbulb-off" class="w-6 h-6 text-run-orange"></i>
+        <div class="fade-in glow-card rounded-2xl p-7">
+          <div class="w-12 h-12 rounded-xl bg-run-orange/10 flex items-center justify-center mb-5">
+            <i data-lucide="puzzle" class="w-6 h-6 text-run-orange"></i>
           </div>
-          <h3 class="font-bold text-lg mb-2">Content ideas dry up</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">You stare at a blank screen. Writer's block wins. Your competitors keep posting.</p>
+          <h3 class="font-bold text-lg mb-3">AI tools that don't connect</h3>
+          <p class="text-cool-gray text-[0.95rem]" style="line-height: 1.75;">You know AI can help, but stitching together ChatGPT, schedulers, and analytics is a full-time job.</p>
         </div>
-      </div>
-      <div class="fade-in mt-16 text-center">
-        <p class="text-cool-gray text-lg">You don't need another scheduling tool. You need something that <span class="text-off-white font-semibold">actually creates and posts for you</span>.</p>
       </div>
     </div>
   </section>
 
   <!-- ======== SOLUTION ======== -->
-  <section id="solution" class="py-20 sm:py-28">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <section id="solution" class="py-24 sm:py-32 section-glow relative overflow-hidden">
+    <div class="orb orb-green w-[350px] h-[350px] top-1/4 -right-24" style="animation-delay: -10s; opacity: 0.1;"></div>
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8 relative z-10">
       <div class="fade-in max-w-3xl mb-16">
         <p class="font-mono text-terminal-green text-sm mb-4 tracking-wide">// the solution</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Always on, always marketing.</h2>
-        <p class="text-cool-gray text-lg">Your AI marketing agents work around the clock — creating content, posting across platforms, engaging your audience, and growing your presence while you sleep.</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">A dedicated AI marketing agent,<br><span class="text-run-orange">custom-built for your brand.</span></h2>
+        <p class="text-cool-gray text-lg" style="line-height: 1.75;">Not a template. Not a chatbot. A fully operational agent that learns your voice, posts on your behalf, and grows your audience — daily.</p>
       </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="fade-in cycle-card bg-slate-dark rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
-            <i data-lucide="pen-tool" class="w-5 h-5 text-terminal-green"></i>
+
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6 max-w-5xl">
+        <div class="fade-in glass-card rounded-2xl p-7">
+          <div class="w-11 h-11 rounded-xl bg-terminal-green/10 flex items-center justify-center mb-5">
+            <i data-lucide="fingerprint" class="w-5 h-5 text-terminal-green"></i>
           </div>
-          <h3 class="font-bold mb-2">Content creation</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">Generates on-brand posts, threads, carousels, and captions tailored to each platform.</p>
+          <h3 class="font-bold mb-2">Learns your voice</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.75;">Trained on your brand, audience, and goals. Posts sound like you — because they're built from you.</p>
         </div>
-        <div class="fade-in cycle-card bg-slate-dark rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in glass-card rounded-2xl p-7">
+          <div class="w-11 h-11 rounded-xl bg-terminal-green/10 flex items-center justify-center mb-5">
             <i data-lucide="send" class="w-5 h-5 text-terminal-green"></i>
           </div>
-          <h3 class="font-bold mb-2">Cross-platform posting</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">Publishes daily across LinkedIn, X, Instagram, TikTok, Threads, and Facebook — on schedule.</p>
+          <h3 class="font-bold mb-2">Posts everywhere</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.75;">LinkedIn, Twitter/X, Instagram, Threads, TikTok — on schedule, with platform-native formatting.</p>
         </div>
-        <div class="fade-in cycle-card bg-slate-dark rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
-            <i data-lucide="heart" class="w-5 h-5 text-terminal-green"></i>
+        <div class="fade-in glass-card rounded-2xl p-7">
+          <div class="w-11 h-11 rounded-xl bg-terminal-green/10 flex items-center justify-center mb-5">
+            <i data-lucide="heart-handshake" class="w-5 h-5 text-terminal-green"></i>
           </div>
-          <h3 class="font-bold mb-2">Engagement &amp; growth</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">Likes, comments, connection requests, and DM outreach to grow your audience organically.</p>
+          <h3 class="font-bold mb-2">Engages authentically</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.75;">Thoughtful comments, relevant likes, strategic connections — not generic bot spam.</p>
         </div>
-        <div class="fade-in cycle-card bg-slate-dark rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in glass-card rounded-2xl p-7">
+          <div class="w-11 h-11 rounded-xl bg-terminal-green/10 flex items-center justify-center mb-5">
+            <i data-lucide="target" class="w-5 h-5 text-terminal-green"></i>
+          </div>
+          <h3 class="font-bold mb-2">Generates leads</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.75;">Strategic outreach to your ICP. Connection requests, DM follow-ups, warm introductions.</p>
+        </div>
+        <div class="fade-in glass-card rounded-2xl p-7">
+          <div class="w-11 h-11 rounded-xl bg-terminal-green/10 flex items-center justify-center mb-5">
             <i data-lucide="bar-chart-3" class="w-5 h-5 text-terminal-green"></i>
           </div>
-          <h3 class="font-bold mb-2">Analytics &amp; reporting</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">Tracks performance, identifies what's working, and adjusts strategy automatically.</p>
+          <h3 class="font-bold mb-2">Reports daily</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.75;">You stay informed without doing the work. Daily summaries, weekly insights, full transparency.</p>
         </div>
-      </div>
-      <div class="fade-in mt-12 bg-slate-dark border border-cool-gray/10 rounded-xl p-6 sm:p-8">
-        <h3 class="font-bold text-lg mb-4">What this looks like in practice:</h3>
-        <div class="grid sm:grid-cols-3 gap-6 text-sm">
-          <div class="flex gap-3">
-            <i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i>
-            <p class="text-cool-gray"><span class="text-off-white">Daily posts</span> go out on every platform, on brand, without you touching a thing.</p>
+        <div class="fade-in glass-card rounded-2xl p-7">
+          <div class="w-11 h-11 rounded-xl bg-terminal-green/10 flex items-center justify-center mb-5">
+            <i data-lucide="shield-check" class="w-5 h-5 text-terminal-green"></i>
           </div>
-          <div class="flex gap-3">
-            <i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i>
-            <p class="text-cool-gray"><span class="text-off-white">Engagement</span> happens automatically — your audience sees you everywhere.</p>
-          </div>
-          <div class="flex gap-3">
-            <i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i>
-            <p class="text-cool-gray"><span class="text-off-white">Warm leads</span> get nurtured through targeted outreach and follow-ups.</p>
-          </div>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== BUILT FOR ======== -->
-  <section id="built-for" class="py-20 sm:py-28 bg-slate-dark">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="fade-in max-w-3xl mb-16">
-        <p class="font-mono text-run-orange text-sm mb-4 tracking-wide">// built for</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Your kind of team.</h2>
-        <p class="text-cool-gray text-lg">RunClaw works for anyone who knows marketing matters — but can't afford to spend all day on it.</p>
-      </div>
-      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
-            <i data-lucide="rocket" class="w-5 h-5 text-electric-blue"></i>
-          </div>
-          <h3 class="font-bold mb-1">Founders &amp; CEOs</h3>
-          <p class="text-cool-gray text-sm">Build your personal brand and generate leads without lifting a finger.</p>
-        </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
-            <i data-lucide="briefcase" class="w-5 h-5 text-electric-blue"></i>
-          </div>
-          <h3 class="font-bold mb-1">Agencies</h3>
-          <p class="text-cool-gray text-sm">Scale content and engagement across client accounts without adding headcount.</p>
-        </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
-            <i data-lucide="megaphone" class="w-5 h-5 text-electric-blue"></i>
-          </div>
-          <h3 class="font-bold mb-1">Marketing teams</h3>
-          <p class="text-cool-gray text-sm">Amplify output across every channel without burning out your team.</p>
-        </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
-            <i data-lucide="store" class="w-5 h-5 text-electric-blue"></i>
-          </div>
-          <h3 class="font-bold mb-1">Small businesses</h3>
-          <p class="text-cool-gray text-sm">Get enterprise-level marketing presence on a bootstrapped budget.</p>
-        </div>
-      </div>
-    </div>
-  </section>
-
-  <!-- ======== WHY RUNCLAW ======== -->
-  <section id="why-runclaw" class="py-20 sm:py-28">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
-      <div class="fade-in max-w-3xl mb-16">
-        <p class="font-mono text-terminal-green text-sm mb-4 tracking-wide">// why runclaw</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">We don't just deploy. We operate.</h2>
-        <p class="text-cool-gray text-lg">Most AI setups fail after day one. We're operators — our own agents are already successfully working in production, and we know what it takes to keep them sharp.</p>
-      </div>
-      <div class="grid sm:grid-cols-3 gap-8">
-        <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
-            <i data-lucide="server" class="w-5 h-5 text-run-orange"></i>
-          </div>
-          <h3 class="font-bold mb-2">Battle-tested in production</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">We eat our own cooking. Every workflow we deploy for you, we've run ourselves first.</p>
-        </div>
-        <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
-            <i data-lucide="globe" class="w-5 h-5 text-run-orange"></i>
-          </div>
-          <h3 class="font-bold mb-2">Every platform covered</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">LinkedIn, X, Instagram, TikTok, Threads, Facebook — your agents work wherever your audience is.</p>
-        </div>
-        <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
-            <i data-lucide="shield-check" class="w-5 h-5 text-run-orange"></i>
-          </div>
-          <h3 class="font-bold mb-2">Security-first</h3>
-          <p class="text-cool-gray text-sm leading-relaxed">Scoped permissions, audit logs, and hardened configurations. Your accounts stay under your control.</p>
+          <h3 class="font-bold mb-2">You stay in control</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.75;">Approve content before it goes live. Revoke access anytime. Full audit trail of every action.</p>
         </div>
       </div>
     </div>
   </section>
 
   <!-- ======== HOW IT WORKS ======== -->
-  <section id="how-it-works" class="py-20 sm:py-28 bg-slate-dark">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+  <section id="how-it-works" class="py-24 sm:py-32 bg-slate-dark">
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8">
       <div class="fade-in max-w-3xl mb-16">
         <p class="font-mono text-run-orange text-sm mb-4 tracking-wide">// how it works</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Three steps. You're running.</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">Live within 48 hours.</h2>
       </div>
-      <div class="grid md:grid-cols-3 gap-8">
+      <div class="grid md:grid-cols-3 gap-10 max-w-5xl">
         <div class="fade-in relative">
-          <div class="font-mono text-5xl font-bold text-run-orange/20 mb-4">01</div>
-          <h3 class="font-bold text-xl mb-3">Onboarding call</h3>
-          <p class="text-cool-gray leading-relaxed">30-minute call. We learn your brand, audience, and goals — then map out your marketing agent strategy.</p>
+          <div class="step-number mb-4">01</div>
+          <h3 class="font-bold text-xl mb-3">Onboarding</h3>
+          <p class="text-cool-gray" style="line-height: 1.75;">30-minute call. We learn your brand, voice, audience, and goals. Then we map out your agent's strategy.</p>
         </div>
         <div class="fade-in relative">
-          <div class="font-mono text-5xl font-bold text-run-orange/20 mb-4">02</div>
-          <h3 class="font-bold text-xl mb-3">Deploy &amp; harden</h3>
-          <p class="text-cool-gray leading-relaxed">Within 48 hours after onboarding, your agents are live — connected to your platforms, trained on your voice, and running in supervised mode until dialed in.</p>
+          <div class="step-number mb-4">02</div>
+          <h3 class="font-bold text-xl mb-3">Build &amp; deploy</h3>
+          <p class="text-cool-gray" style="line-height: 1.75;">Your custom agent is live within 48 hours — connected to your platforms, trained on your content, running in supervised mode.</p>
         </div>
         <div class="fade-in relative">
-          <div class="font-mono text-5xl font-bold text-run-orange/20 mb-4">03</div>
-          <h3 class="font-bold text-xl mb-3">You're running</h3>
-          <p class="text-cool-gray leading-relaxed">Your marketing agents go autonomous. We monitor performance, tune content strategy, and handle upgrades. You just grow.</p>
+          <div class="step-number mb-4">03</div>
+          <h3 class="font-bold text-xl mb-3">You grow</h3>
+          <p class="text-cool-gray" style="line-height: 1.75;">The agent works daily while you focus on your business. We monitor, tune, and optimize. You just approve and grow.</p>
         </div>
       </div>
     </div>
   </section>
 
-  <!-- ======== CTA (replaces pricing) ======== -->
-  <section id="pricing" class="py-20 sm:py-28">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
-      <div class="fade-in">
-        <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide">// get started</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">Ready to get started?</h2>
-        <p class="text-cool-gray text-lg mb-10 max-w-xl mx-auto">
-          Let's talk about your marketing goals and build your AI team.
-        </p>
-        <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-lg px-10 py-4 rounded-lg hover:brightness-110 transition-all">
-          <i data-lucide="calendar" class="w-5 h-5"></i>
-          Book a call
-        </a>
+  <!-- ======== WHO IT'S FOR ======== -->
+  <section id="built-for" class="py-24 sm:py-32 section-glow">
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8">
+      <div class="fade-in max-w-3xl mb-16">
+        <p class="font-mono text-terminal-green text-sm mb-4 tracking-wide">// who it's for</p>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-6">Built for people who know<br><span class="text-run-orange">consistency wins.</span></h2>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
+        <div class="fade-in glass-card rounded-2xl p-7 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-run-orange/10 flex items-center justify-center mb-5 mx-auto">
+            <i data-lucide="rocket" class="w-7 h-7 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold mb-2">Founders</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.7;">Building a personal brand while running a company.</p>
+        </div>
+        <div class="fade-in glass-card rounded-2xl p-7 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-run-orange/10 flex items-center justify-center mb-5 mx-auto">
+            <i data-lucide="briefcase" class="w-7 h-7 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold mb-2">Agencies</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.7;">Managing multiple client accounts without adding headcount.</p>
+        </div>
+        <div class="fade-in glass-card rounded-2xl p-7 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-run-orange/10 flex items-center justify-center mb-5 mx-auto">
+            <i data-lucide="users" class="w-7 h-7 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold mb-2">Marketing teams</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.7;">Stretched thin and need to amplify output across channels.</p>
+        </div>
+        <div class="fade-in glass-card rounded-2xl p-7 text-center">
+          <div class="w-14 h-14 rounded-2xl bg-run-orange/10 flex items-center justify-center mb-5 mx-auto">
+            <i data-lucide="trending-up" class="w-7 h-7 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold mb-2">Growth-minded</h3>
+          <p class="text-cool-gray text-sm" style="line-height: 1.7;">Anyone who knows consistent social media = growth but can't keep up.</p>
+        </div>
       </div>
     </div>
   </section>
 
   <!-- ======== FAQ ======== -->
-  <section id="faq" class="py-20 sm:py-28 bg-slate-dark">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6">
+  <section id="faq" class="py-24 sm:py-32 bg-slate-dark">
+    <div class="max-w-3xl mx-auto px-6 sm:px-8">
       <div class="fade-in mb-16">
         <p class="font-mono text-run-orange text-sm mb-4 tracking-wide">// faq</p>
-        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Common questions.</h2>
+        <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Questions.</h2>
       </div>
       <div class="space-y-4">
-        <details class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in glass-card rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">Will it actually sound like me?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray" style="line-height: 1.75;">
+            Yes. We train your agent on your existing content, your tone, your style. During onboarding, we dial in your voice until you can't tell the difference. You approve everything before it goes live.
+          </div>
+        </details>
+        <details class="fade-in glass-card rounded-2xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">How is my data kept safe?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
           </summary>
-          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
-            Your agents run with scoped permissions — they only access what you explicitly authorize. All connections use OAuth with minimal scopes. We don't store your content or credentials. Audit logs track every action your agents take, and you can revoke access at any time.
+          <div class="px-6 pb-6 text-cool-gray" style="line-height: 1.75;">
+            Scoped permissions — your agent only accesses what you authorize. OAuth with minimal scopes. Full audit logs. You can revoke access at any time.
           </div>
         </details>
-        <details class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in glass-card rounded-2xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
-            <span class="font-semibold text-lg pr-4">Do I need to be technical to use this?</span>
+            <span class="font-semibold text-lg pr-4">How fast can I be live?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
           </summary>
-          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
-            No. We handle all the technical setup — deployment, platform connections, content training, and monitoring. You just tell us about your brand and audience, and we build your marketing agents around it.
+          <div class="px-6 pb-6 text-cool-gray" style="line-height: 1.75;">
+            48 hours after onboarding. We run in supervised mode for the first few days, then go fully autonomous once you're comfortable.
           </div>
         </details>
-        <details class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl group">
-          <summary class="flex items-center justify-between p-6 cursor-pointer">
-            <span class="font-semibold text-lg pr-4">How long until my agents are live?</span>
-            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
-          </summary>
-          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
-            Most agents are deployed within 48 hours after onboarding. We run them in supervised mode for the first few days to tune content and engagement, then switch to full autonomous operation.
-          </div>
-        </details>
-        <details class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in glass-card rounded-2xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">Which platforms are supported?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
           </summary>
-          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
-            Our agents work across LinkedIn, Twitter/X, Instagram, TikTok, Threads, and Facebook. Each platform gets content tailored to its format and audience. We can also connect analytics, CRM, and other marketing tools.
+          <div class="px-6 pb-6 text-cool-gray" style="line-height: 1.75;">
+            LinkedIn, Twitter/X, Instagram, TikTok, Threads, and Facebook. Each gets content tailored to its format and audience.
+          </div>
+        </details>
+        <details class="fade-in glass-card rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">Do I need to be technical?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray" style="line-height: 1.75;">
+            Not at all. We handle everything — deployment, platform connections, training, monitoring. You just tell us about your brand.
           </div>
         </details>
       </div>
@@ -437,22 +629,23 @@
   </section>
 
   <!-- ======== FINAL CTA ======== -->
-  <section id="booking" class="py-20 sm:py-28">
-    <div class="max-w-3xl mx-auto px-4 sm:px-6 text-center">
+  <section id="booking" class="py-24 sm:py-32 relative overflow-hidden">
+    <div class="orb orb-orange w-[500px] h-[500px] top-0 left-1/2 -translate-x-1/2" style="opacity: 0.1;"></div>
+    <div class="max-w-3xl mx-auto px-6 sm:px-8 text-center relative z-10">
       <div class="fade-in">
-        <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide">// let's go</p>
-        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-extrabold tracking-tight mb-6">
-          Stop scrambling.<br><span class="text-run-orange">Start marketing.</span>
+        <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide">// your move</p>
+        <h2 class="text-3xl sm:text-4xl lg:text-5xl font-black tracking-tight mb-6 leading-tight">
+          Your competitors are posting every day.<br><span class="text-run-orange">Are you?</span>
         </h2>
-        <p class="text-cool-gray text-lg mb-10 max-w-xl mx-auto">
-          Book a 30-minute onboarding call. We'll learn your brand, scope your marketing agents, and get you running.
+        <p class="text-cool-gray text-lg mb-10 max-w-xl mx-auto" style="line-height: 1.75;">
+          Book a call — your agent could be running by next week.
         </p>
-        <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-lg px-10 py-4 rounded-lg hover:brightness-110 transition-all mb-6">
+        <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-lg px-10 py-4 rounded-xl btn-glow mb-8">
           <i data-lucide="calendar" class="w-5 h-5"></i>
           Book a call
         </a>
         <p class="text-cool-gray text-sm font-mono">
-          <span class="text-run-orange mr-2">&#9679;</span> We onboard 3 new teams per week. Spots are limited.
+          <span class="text-run-orange mr-2">●</span> We onboard 3 new teams per week. Spots are limited.
         </p>
       </div>
     </div>
@@ -460,7 +653,7 @@
 
   <!-- ======== FOOTER ======== -->
   <footer class="border-t border-cool-gray/10 py-12">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6">
+    <div class="max-w-[1200px] mx-auto px-6 sm:px-8">
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
         <div>
           <img src="https://pub-debd1c0b305145b7885960d958419d52.r2.dev/runclaw/logo/runclaw-combo-orange-final.png" alt="RunClaw" class="h-8 mb-4">
@@ -469,15 +662,16 @@
         <div>
           <h4 class="font-semibold text-sm mb-4">Product</h4>
           <ul class="space-y-2 text-sm text-cool-gray">
-            <li><a href="#solution" class="hover:text-off-white transition-colors">How it works</a></li>
+            <li><a href="#gary" class="hover:text-off-white transition-colors">Meet Gary</a></li>
+            <li><a href="#solution" class="hover:text-off-white transition-colors">Solution</a></li>
+            <li><a href="#how-it-works" class="hover:text-off-white transition-colors">How it works</a></li>
             <li><a href="#faq" class="hover:text-off-white transition-colors">FAQ</a></li>
           </ul>
         </div>
         <div>
           <h4 class="font-semibold text-sm mb-4">Company</h4>
           <ul class="space-y-2 text-sm text-cool-gray">
-            <li><a href="#" class="hover:text-off-white transition-colors">About</a></li>
-            <li><a href="#" class="hover:text-off-white transition-colors">Blog</a></li>
+            <li><a href="https://codeandsoul.ai" target="_blank" rel="noopener" class="hover:text-off-white transition-colors">CODE&amp;SOUL</a></li>
             <li><a href="#" class="hover:text-off-white transition-colors">Contact</a></li>
           </ul>
         </div>
@@ -504,21 +698,16 @@
     // Mobile menu toggle
     const mobileMenuBtn = document.getElementById('mobile-menu-btn');
     const mobileMenu = document.getElementById('mobile-menu');
-    mobileMenuBtn.addEventListener('click', () => {
-      mobileMenu.classList.toggle('hidden');
-    });
-    // Close mobile menu on nav link click
+    mobileMenuBtn.addEventListener('click', () => mobileMenu.classList.toggle('hidden'));
     document.querySelectorAll('.mobile-nav-link').forEach(link => {
       link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
     });
 
-    // Sticky header behavior
+    // Sticky header
     const header = document.getElementById('site-header');
     const headerCta = document.getElementById('header-cta');
-
     window.addEventListener('scroll', () => {
-      const scrollY = window.scrollY;
-      if (scrollY > 80) {
+      if (window.scrollY > 80) {
         header.classList.add('header-scrolled');
         headerCta.classList.add('show');
       } else {
@@ -527,25 +716,67 @@
       }
     }, { passive: true });
 
-    // Fade-in on scroll (Intersection Observer) with stagger
+    // Fade-in on scroll with stagger
     const fadeEls = document.querySelectorAll('.fade-in');
-    const observer = new IntersectionObserver((entries) => {
+    const fadeObserver = new IntersectionObserver((entries) => {
       entries.forEach((entry) => {
         if (entry.isIntersecting) {
           const siblings = Array.from(entry.target.parentElement.querySelectorAll(':scope > .fade-in'));
           const idx = siblings.indexOf(entry.target);
-          const delay = Math.max(0, idx) * 80;
+          const delay = Math.max(0, idx) * 100;
           setTimeout(() => entry.target.classList.add('visible'), delay);
-          observer.unobserve(entry.target);
+          fadeObserver.unobserve(entry.target);
         }
       });
-    }, {
-      threshold: 0.1,
-      rootMargin: '0px 0px -40px 0px',
-    });
-    fadeEls.forEach(el => observer.observe(el));
+    }, { threshold: 0.1, rootMargin: '0px 0px -60px 0px' });
+    fadeEls.forEach(el => fadeObserver.observe(el));
 
-    // Smooth scroll for anchor links
+    // Terminal typing animation
+    const terminalLines = document.querySelectorAll('.terminal-line');
+    let terminalAnimated = false;
+    const terminalObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !terminalAnimated) {
+          terminalAnimated = true;
+          terminalLines.forEach((line, i) => {
+            setTimeout(() => line.classList.add('typed'), i * 350);
+          });
+          terminalObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.2 });
+    const terminalFeed = document.getElementById('terminal-feed');
+    if (terminalFeed) terminalObserver.observe(terminalFeed);
+
+    // Counter animation
+    const statNumbers = document.querySelectorAll('.stat-number');
+    let countersAnimated = false;
+    const counterObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting && !countersAnimated) {
+          countersAnimated = true;
+          statNumbers.forEach((el) => {
+            const target = parseInt(el.dataset.target);
+            const suffix = el.dataset.suffix || '';
+            const duration = 1500;
+            const start = performance.now();
+            function update(now) {
+              const elapsed = now - start;
+              const progress = Math.min(elapsed / duration, 1);
+              const eased = 1 - Math.pow(1 - progress, 3);
+              const current = Math.round(eased * target);
+              el.textContent = current + suffix;
+              if (progress < 1) requestAnimationFrame(update);
+            }
+            requestAnimationFrame(update);
+          });
+          counterObserver.unobserve(entry.target);
+        }
+      });
+    }, { threshold: 0.3 });
+    statNumbers.forEach(el => counterObserver.observe(el));
+
+    // Smooth scroll
     document.querySelectorAll('a[href^="#"]').forEach(link => {
       link.addEventListener('click', (e) => {
         const target = document.querySelector(link.getAttribute('href'));
@@ -553,8 +784,8 @@
           e.preventDefault();
           mobileMenu.classList.add('hidden');
           const headerHeight = header.offsetHeight;
-          const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
-          window.scrollTo({ top: targetPosition, behavior: 'smooth' });
+          const targetPos = target.getBoundingClientRect().top + window.scrollY - headerHeight;
+          window.scrollTo({ top: targetPos, behavior: 'smooth' });
         }
       });
     });
