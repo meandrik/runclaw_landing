@@ -118,10 +118,26 @@
         <a href="#pricing" class="hover:text-off-white transition-colors">Pricing</a>
         <a href="#faq" class="hover:text-off-white transition-colors">FAQ</a>
       </nav>
-      <a href="#booking" id="header-cta" class="header-cta inline-flex items-center gap-2 bg-run-orange text-claw-black font-semibold text-sm px-5 py-2.5 rounded-lg hover:brightness-110 transition-all">
-        Book a call
-      </a>
+      <div class="flex items-center gap-3">
+        <a href="#booking" id="header-cta" class="header-cta inline-flex items-center gap-2 bg-run-orange text-claw-black font-semibold text-sm px-5 py-2.5 rounded-lg hover:brightness-110 transition-all">
+          Book a call
+        </a>
+        <button id="mobile-menu-btn" class="md:hidden flex items-center justify-center w-10 h-10 rounded-lg text-cool-gray hover:text-off-white transition-colors" aria-label="Menu">
+          <i data-lucide="menu" class="w-6 h-6"></i>
+        </button>
+      </div>
     </div>
+    <!-- Mobile nav -->
+    <nav id="mobile-menu" class="md:hidden hidden bg-claw-black/95 backdrop-blur-lg border-t border-cool-gray/10 px-4 py-6">
+      <div class="flex flex-col gap-4 text-base text-cool-gray">
+        <a href="#problem" class="mobile-nav-link hover:text-off-white transition-colors py-1">Problem</a>
+        <a href="#solution" class="mobile-nav-link hover:text-off-white transition-colors py-1">Solution</a>
+        <a href="#how-it-works" class="mobile-nav-link hover:text-off-white transition-colors py-1">How it works</a>
+        <a href="#pricing" class="mobile-nav-link hover:text-off-white transition-colors py-1">Pricing</a>
+        <a href="#faq" class="mobile-nav-link hover:text-off-white transition-colors py-1">FAQ</a>
+        <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-sm px-6 py-3 rounded-lg hover:brightness-110 transition-all mt-2">Book a kickoff call</a>
+      </div>
+    </nav>
   </header>
 
   <!-- ======== HERO ======== -->
@@ -369,7 +385,7 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">Simple, per-agent pricing.</h2>
         <p class="text-cool-gray text-lg">No hidden fees. No per-seat charges. Pay for what runs.</p>
       </div>
-      <div class="grid md:grid-cols-3 gap-6 max-w-4xl">
+      <div class="grid md:grid-cols-3 gap-6 max-w-4xl mx-auto">
         <div class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
           <h3 class="font-bold text-lg mb-1">Starter</h3>
           <p class="text-cool-gray text-sm mb-6">1 agent, core workflows</p>
@@ -524,7 +540,7 @@
         </div>
       </div>
       <div class="border-t border-cool-gray/10 pt-8 flex flex-col sm:flex-row items-center justify-between gap-4">
-        <p class="text-cool-gray text-sm">&copy; 2025 RunClaw. All rights reserved.</p>
+        <p class="text-cool-gray text-sm">&copy; 2026 RunClaw. All rights reserved.</p>
         <p class="text-cool-gray text-sm">A <a href="https://codeandsoul.ai" target="_blank" rel="noopener" class="text-off-white hover:text-run-orange transition-colors font-medium">CODE&amp;SOUL</a> company.</p>
       </div>
     </div>
@@ -535,14 +551,23 @@
     // Initialize Lucide icons
     lucide.createIcons();
 
+    // Mobile menu toggle
+    const mobileMenuBtn = document.getElementById('mobile-menu-btn');
+    const mobileMenu = document.getElementById('mobile-menu');
+    mobileMenuBtn.addEventListener('click', () => {
+      mobileMenu.classList.toggle('hidden');
+    });
+    // Close mobile menu on nav link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', () => mobileMenu.classList.add('hidden'));
+    });
+
     // Sticky header behavior
     const header = document.getElementById('site-header');
     const headerCta = document.getElementById('header-cta');
-    let lastScroll = 0;
 
     window.addEventListener('scroll', () => {
       const scrollY = window.scrollY;
-
       if (scrollY > 80) {
         header.classList.add('header-scrolled');
         headerCta.classList.add('show');
@@ -550,24 +575,17 @@
         header.classList.remove('header-scrolled');
         headerCta.classList.remove('show');
       }
-
-      lastScroll = scrollY;
     }, { passive: true });
 
-    // Fade-in on scroll (Intersection Observer)
+    // Fade-in on scroll (Intersection Observer) with stagger
     const fadeEls = document.querySelectorAll('.fade-in');
     const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, index) => {
+      entries.forEach((entry) => {
         if (entry.isIntersecting) {
-          // Stagger animations for siblings
-          const siblings = entry.target.parentElement.querySelectorAll('.fade-in');
-          let delay = 0;
-          siblings.forEach((sib, i) => {
-            if (sib === entry.target) delay = i * 80;
-          });
-          setTimeout(() => {
-            entry.target.classList.add('visible');
-          }, delay);
+          const siblings = Array.from(entry.target.parentElement.querySelectorAll(':scope > .fade-in'));
+          const idx = siblings.indexOf(entry.target);
+          const delay = Math.max(0, idx) * 80;
+          setTimeout(() => entry.target.classList.add('visible'), delay);
           observer.unobserve(entry.target);
         }
       });
@@ -575,7 +593,6 @@
       threshold: 0.1,
       rootMargin: '0px 0px -40px 0px',
     });
-
     fadeEls.forEach(el => observer.observe(el));
 
     // Smooth scroll for anchor links
@@ -584,6 +601,7 @@
         const target = document.querySelector(link.getAttribute('href'));
         if (target) {
           e.preventDefault();
+          mobileMenu.classList.add('hidden');
           const headerHeight = header.offsetHeight;
           const targetPosition = target.getBoundingClientRect().top + window.scrollY - headerHeight;
           window.scrollTo({ top: targetPosition, behavior: 'smooth' });
