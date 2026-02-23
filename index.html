@@ -111,6 +111,32 @@
       z-index: 0;
     }
 
+    /* ── Hero lobster ── */
+    .hero-lobster-wrap {
+      position: relative;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+    }
+    .hero-lobster-glow {
+      position: absolute;
+      width: 100%;
+      height: 100%;
+      background: radial-gradient(circle, rgba(255, 107, 43, 0.15) 0%, rgba(255, 107, 43, 0.05) 40%, transparent 70%);
+      border-radius: 50%;
+      filter: blur(40px);
+      animation: lobster-pulse 4s ease-in-out infinite;
+    }
+    .hero-lobster-svg {
+      position: relative;
+      z-index: 1;
+      filter: drop-shadow(0 0 30px rgba(255, 107, 43, 0.3)) drop-shadow(0 0 60px rgba(255, 107, 43, 0.1));
+    }
+    @keyframes lobster-pulse {
+      0%, 100% { opacity: 0.6; transform: scale(1); }
+      50% { opacity: 1; transform: scale(1.05); }
+    }
+
     /* ── Card hover effects ── */
     .card-hover {
       transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
@@ -284,28 +310,90 @@
   <section class="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
     <div class="hero-glow"></div>
     <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full relative z-10">
-      <div class="max-w-3xl">
-        <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide">// OpenClaw agent deployment</p>
-        <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
-          Spawn your AI colleague.<br>
-          <span class="text-run-orange">Working every single day.</span>
-        </h1>
-        <p class="text-lg sm:text-xl text-cool-gray leading-relaxed mb-10 max-w-2xl">
-          We configure and deploy an OpenClaw agent that works like a real remote colleague. It publishes content, engages your audience, generates leads, and reports back to you. Every day.
-        </p>
-        <div class="flex flex-col sm:flex-row gap-4 mb-12">
-          <a href="#booking" class="cta-primary inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-8 py-4 rounded-lg hover:brightness-110 transition-all">
-            <i data-lucide="calendar" class="w-5 h-5"></i>
-            Book a kickoff call
-          </a>
-          <a href="#what-is" class="inline-flex items-center justify-center gap-2 border border-cool-gray/30 text-off-white font-semibold text-base px-8 py-4 rounded-lg hover:border-cool-gray/60 transition-all">
-            See how it works
-            <i data-lucide="arrow-down" class="w-4 h-4"></i>
-          </a>
+      <div class="grid lg:grid-cols-5 gap-8 lg:gap-12 items-center">
+        <div class="lg:col-span-3">
+          <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide">// OpenClaw agent deployment</p>
+          <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
+            Spawn your AI colleague.<br>
+            <span class="text-run-orange">Working every single day.</span>
+          </h1>
+          <p class="text-lg sm:text-xl text-cool-gray leading-relaxed mb-10 max-w-2xl">
+            We configure and deploy an OpenClaw agent that works like a real remote colleague. It publishes content, engages your audience, generates leads, and reports back to you. Every day.
+          </p>
+          <div class="flex flex-col sm:flex-row gap-4 mb-12">
+            <a href="#booking" class="cta-primary inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-8 py-4 rounded-lg hover:brightness-110 transition-all">
+              <i data-lucide="calendar" class="w-5 h-5"></i>
+              Book a kickoff call
+            </a>
+            <a href="#what-is" class="inline-flex items-center justify-center gap-2 border border-cool-gray/30 text-off-white font-semibold text-base px-8 py-4 rounded-lg hover:border-cool-gray/60 transition-all">
+              See how it works
+              <i data-lucide="arrow-down" class="w-4 h-4"></i>
+            </a>
+          </div>
+          <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-cool-gray font-mono">
+            <span><span class="text-terminal-green mr-2">&#9679;</span> Live within 48 hours after onboarding</span>
+            <span><span class="text-run-orange mr-2">&#9679;</span> $1,500 flat setup fee</span>
+          </div>
         </div>
-        <div class="flex flex-col sm:flex-row gap-4 sm:gap-8 text-sm text-cool-gray font-mono">
-          <span><span class="text-terminal-green mr-2">&#9679;</span> Live within 48 hours after onboarding</span>
-          <span><span class="text-run-orange mr-2">&#9679;</span> $1,500 flat setup fee</span>
+        <div class="lg:col-span-2 hidden lg:flex justify-center">
+          <div class="hero-lobster-wrap w-80 h-80 xl:w-96 xl:h-96">
+            <div class="hero-lobster-glow"></div>
+            <svg class="hero-lobster-svg w-64 h-64 xl:w-80 xl:h-80" viewBox="0 0 200 200" fill="none" xmlns="http://www.w3.org/2000/svg">
+              <!-- Stylized lobster / claw silhouette -->
+              <defs>
+                <linearGradient id="lobster-grad" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#FF6B2B"/>
+                  <stop offset="50%" stop-color="#FF8F5C"/>
+                  <stop offset="100%" stop-color="#FF6B2B"/>
+                </linearGradient>
+                <linearGradient id="lobster-grad-dark" x1="0" y1="0" x2="200" y2="200" gradientUnits="userSpaceOnUse">
+                  <stop offset="0%" stop-color="#CC5520"/>
+                  <stop offset="100%" stop-color="#FF6B2B"/>
+                </linearGradient>
+              </defs>
+              <!-- Left claw -->
+              <path d="M52 58 C42 42, 20 38, 14 52 C8 66, 18 78, 32 76 C24 82, 16 94, 24 104 C32 114, 48 110, 52 98 Z" fill="url(#lobster-grad)" opacity="0.95"/>
+              <!-- Right claw -->
+              <path d="M148 58 C158 42, 180 38, 186 52 C192 66, 182 78, 168 76 C176 82, 184 94, 176 104 C168 114, 152 110, 148 98 Z" fill="url(#lobster-grad)" opacity="0.95"/>
+              <!-- Left arm -->
+              <path d="M72 82 L52 78 C50 76, 50 72, 52 70 L52 58 C54 56, 58 56, 60 58 L72 72 Z" fill="url(#lobster-grad-dark)" opacity="0.9"/>
+              <!-- Right arm -->
+              <path d="M128 82 L148 78 C150 76, 150 72, 148 70 L148 58 C146 56, 142 56, 140 58 L128 72 Z" fill="url(#lobster-grad-dark)" opacity="0.9"/>
+              <!-- Body -->
+              <ellipse cx="100" cy="100" rx="32" ry="40" fill="url(#lobster-grad)" opacity="0.95"/>
+              <!-- Head -->
+              <ellipse cx="100" cy="68" rx="24" ry="18" fill="url(#lobster-grad)" opacity="0.95"/>
+              <!-- Eyes -->
+              <circle cx="90" cy="60" r="4" fill="#0D0D0D" opacity="0.8"/>
+              <circle cx="110" cy="60" r="4" fill="#0D0D0D" opacity="0.8"/>
+              <circle cx="91" cy="59" r="1.5" fill="#FAFAFA" opacity="0.9"/>
+              <circle cx="111" cy="59" r="1.5" fill="#FAFAFA" opacity="0.9"/>
+              <!-- Antennae -->
+              <path d="M88 52 C82 36, 68 28, 60 22" stroke="url(#lobster-grad)" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <path d="M112 52 C118 36, 132 28, 140 22" stroke="url(#lobster-grad)" stroke-width="2.5" stroke-linecap="round" fill="none" opacity="0.8"/>
+              <!-- Antennae tips -->
+              <circle cx="60" cy="22" r="3" fill="#FF6B2B" opacity="0.6"/>
+              <circle cx="140" cy="22" r="3" fill="#FF6B2B" opacity="0.6"/>
+              <!-- Tail segments -->
+              <ellipse cx="100" cy="142" rx="26" ry="10" fill="url(#lobster-grad-dark)" opacity="0.85"/>
+              <ellipse cx="100" cy="154" rx="22" ry="8" fill="url(#lobster-grad-dark)" opacity="0.8"/>
+              <ellipse cx="100" cy="164" rx="18" ry="7" fill="url(#lobster-grad-dark)" opacity="0.75"/>
+              <!-- Tail fan -->
+              <path d="M82 170 C78 180, 84 188, 92 186 L100 178 L108 186 C116 188, 122 180, 118 170 Z" fill="url(#lobster-grad)" opacity="0.8"/>
+              <!-- Body segments (subtle lines) -->
+              <line x1="76" y1="95" x2="124" y2="95" stroke="#0D0D0D" stroke-width="0.5" opacity="0.15"/>
+              <line x1="74" y1="105" x2="126" y2="105" stroke="#0D0D0D" stroke-width="0.5" opacity="0.15"/>
+              <line x1="72" y1="115" x2="128" y2="115" stroke="#0D0D0D" stroke-width="0.5" opacity="0.15"/>
+              <line x1="74" y1="125" x2="126" y2="125" stroke="#0D0D0D" stroke-width="0.5" opacity="0.15"/>
+              <!-- Legs -->
+              <path d="M74 92 L58 100" stroke="url(#lobster-grad-dark)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M72 102 L54 112" stroke="url(#lobster-grad-dark)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M72 112 L56 124" stroke="url(#lobster-grad-dark)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M126 92 L142 100" stroke="url(#lobster-grad-dark)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M128 102 L146 112" stroke="url(#lobster-grad-dark)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+              <path d="M128 112 L144 124" stroke="url(#lobster-grad-dark)" stroke-width="2" stroke-linecap="round" opacity="0.7"/>
+            </svg>
+          </div>
         </div>
       </div>
     </div>
