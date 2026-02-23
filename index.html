@@ -61,6 +61,7 @@
   <style>
     html { background-color: #0D0D0D; }
 
+    /* ── Fade-in animations ── */
     .fade-in {
       opacity: 0;
       transform: translateY(24px);
@@ -71,10 +72,13 @@
       transform: translateY(0);
     }
 
+    /* ── Header ── */
     .header-scrolled {
-      background-color: rgba(13, 13, 13, 0.95);
-      backdrop-filter: blur(12px);
-      border-bottom: 1px solid rgba(255, 107, 43, 0.15);
+      background-color: rgba(13, 13, 13, 0.92);
+      backdrop-filter: blur(16px);
+      -webkit-backdrop-filter: blur(16px);
+      border-bottom: 1px solid rgba(255, 107, 43, 0.12);
+      box-shadow: 0 4px 30px rgba(0, 0, 0, 0.3);
     }
 
     .header-cta {
@@ -89,11 +93,35 @@
       pointer-events: auto;
     }
 
+    /* ── FAQ ── */
     details summary::-webkit-details-marker { display: none; }
     details summary { list-style: none; }
     details[open] summary .faq-chevron { transform: rotate(180deg); }
     .faq-chevron { transition: transform 0.2s ease; }
 
+    /* ── Hero glow ── */
+    .hero-glow {
+      position: absolute;
+      top: -10%;
+      left: -5%;
+      width: 60%;
+      height: 70%;
+      background: radial-gradient(ellipse at center, rgba(255, 107, 43, 0.06) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: 0;
+    }
+
+    /* ── Card hover effects ── */
+    .card-hover {
+      transition: transform 0.25s ease, box-shadow 0.25s ease, border-color 0.25s ease;
+    }
+    .card-hover:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 40px rgba(0, 0, 0, 0.3);
+      border-color: rgba(148, 163, 184, 0.2);
+    }
+
+    /* ── Spawning ritual steps ── */
     .step-number {
       width: 48px;
       height: 48px;
@@ -107,6 +135,127 @@
       background: rgba(255, 107, 43, 0.1);
       color: #FF6B2B;
       flex-shrink: 0;
+      border: 1px solid rgba(255, 107, 43, 0.15);
+      transition: background 0.25s ease, transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .step-row:hover .step-number {
+      background: rgba(255, 107, 43, 0.18);
+      transform: scale(1.05);
+      box-shadow: 0 0 20px rgba(255, 107, 43, 0.15);
+    }
+
+    .step-row {
+      position: relative;
+      transition: transform 0.2s ease;
+    }
+
+    .step-connector {
+      position: absolute;
+      left: 23px;
+      top: 56px;
+      bottom: -24px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(255, 107, 43, 0.2), rgba(255, 107, 43, 0.05));
+    }
+
+    /* ── Pricing card glow ── */
+    .pricing-card {
+      position: relative;
+      transition: transform 0.3s ease, box-shadow 0.3s ease;
+    }
+    .pricing-card::before {
+      content: '';
+      position: absolute;
+      inset: -1px;
+      border-radius: 13px;
+      background: linear-gradient(135deg, rgba(255, 107, 43, 0.4), rgba(255, 107, 43, 0.1), rgba(255, 107, 43, 0.3));
+      z-index: -1;
+      opacity: 0.6;
+      transition: opacity 0.3s ease;
+    }
+    .pricing-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 20px 60px rgba(255, 107, 43, 0.12);
+    }
+    .pricing-card:hover::before {
+      opacity: 1;
+    }
+
+    /* ── Section dividers ── */
+    .section-divider-top {
+      position: relative;
+    }
+    .section-divider-top::before {
+      content: '';
+      position: absolute;
+      top: 0;
+      left: 50%;
+      transform: translateX(-50%);
+      width: 80px;
+      height: 2px;
+      background: linear-gradient(90deg, transparent, rgba(255, 107, 43, 0.4), transparent);
+    }
+
+    /* ── Icon containers subtle pulse on card hover ── */
+    .card-hover:hover .icon-box {
+      box-shadow: 0 0 16px rgba(255, 107, 43, 0.12);
+    }
+    .icon-box {
+      transition: box-shadow 0.25s ease;
+    }
+
+    /* ── CTA buttons ── */
+    .cta-primary {
+      position: relative;
+      overflow: hidden;
+    }
+    .cta-primary::after {
+      content: '';
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(255,255,255,0.15) 0%, transparent 50%);
+      opacity: 0;
+      transition: opacity 0.3s ease;
+    }
+    .cta-primary:hover::after {
+      opacity: 1;
+    }
+
+    /* ── Subtle noise texture overlay ── */
+    body::before {
+      content: '';
+      position: fixed;
+      inset: 0;
+      opacity: 0.015;
+      background-image: url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)'/%3E%3C/svg%3E");
+      pointer-events: none;
+      z-index: 9999;
+    }
+
+    /* ── FAQ hover ── */
+    details.faq-item {
+      transition: border-color 0.2s ease;
+    }
+    details.faq-item:hover {
+      border-color: rgba(148, 163, 184, 0.2);
+    }
+    details.faq-item[open] {
+      border-color: rgba(255, 107, 43, 0.2);
+    }
+
+    /* ── Smooth section backgrounds ── */
+    .bg-gradient-dark {
+      background: linear-gradient(180deg, #0D0D0D 0%, #131820 100%);
+    }
+    .bg-gradient-slate {
+      background: linear-gradient(180deg, #1E293B 0%, #1a2332 100%);
+    }
+
+    /* ── Mobile refinements ── */
+    @media (max-width: 640px) {
+      .card-hover:hover { transform: none; }
+      .pricing-card:hover { transform: none; }
     }
   </style>
 </head>
@@ -132,8 +281,9 @@
   </header>
 
   <!-- ======== HERO ======== -->
-  <section class="relative min-h-screen flex items-center pt-20 pb-16">
-    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+  <section class="relative min-h-screen flex items-center pt-20 pb-16 overflow-hidden">
+    <div class="hero-glow"></div>
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full relative z-10">
       <div class="max-w-3xl">
         <p class="font-mono text-terminal-green text-sm mb-6 tracking-wide">// OpenClaw agent deployment</p>
         <h1 class="text-4xl sm:text-5xl lg:text-6xl font-extrabold leading-tight tracking-tight mb-6">
@@ -144,7 +294,7 @@
           We configure and deploy an OpenClaw agent that works like a real remote colleague. It publishes content, engages your audience, generates leads, and reports back to you. Every day.
         </p>
         <div class="flex flex-col sm:flex-row gap-4 mb-12">
-          <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-8 py-4 rounded-lg hover:brightness-110 transition-all">
+          <a href="#booking" class="cta-primary inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-8 py-4 rounded-lg hover:brightness-110 transition-all">
             <i data-lucide="calendar" class="w-5 h-5"></i>
             Book a kickoff call
           </a>
@@ -170,29 +320,29 @@
         <p class="text-cool-gray text-lg">Every founder and business owner hits the same wall. Social media demands consistency, but you're running a company.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="calendar-x" class="w-6 h-6 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-2">Inconsistent posting</h3>
           <p class="text-cool-gray text-sm leading-relaxed">You start strong, then life gets in the way. Weeks pass without a single post.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="message-circle-off" class="w-6 h-6 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-2">Zero engagement</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Posting isn't enough. You need to comment, reply, and interact daily. Who has that time?</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="ghost" class="w-6 h-6 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-2">Leads go cold</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Potential clients see an inactive profile and move on. Your competitors are posting every day.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-12 h-12 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="user-x" class="w-6 h-6 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-2">Can't hire for this</h3>
@@ -206,7 +356,7 @@
   </section>
 
   <!-- ======== WHAT IS AN OPENCLAW AGENT ======== -->
-  <section id="what-is" class="py-20 sm:py-28">
+  <section id="what-is" class="py-20 sm:py-28 bg-gradient-dark section-divider-top">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="fade-in max-w-3xl mb-16">
         <p class="font-mono text-terminal-green text-sm mb-4 tracking-wide">// what is an OpenClaw agent</p>
@@ -216,29 +366,29 @@
         </p>
       </div>
       <div class="grid md:grid-cols-2 gap-8 max-w-4xl">
-        <div class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
+          <div class="icon-box w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="user-check" class="w-5 h-5 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-3">Works like a real person</h3>
           <p class="text-cool-gray leading-relaxed">Working with your OpenClaw agent feels like working with a remote colleague. It has a name, a personality, and a mission. It understands your business, learns your voice, and gets better over time.</p>
         </div>
-        <div class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
+          <div class="icon-box w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="clock" class="w-5 h-5 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-3">Shows up every day</h3>
           <p class="text-cool-gray leading-relaxed">Your agent has its own schedule. Morning research, midday engagement, afternoon publishing. It follows the plan, adapts when needed, and never takes a day off.</p>
         </div>
-        <div class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
+          <div class="icon-box w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="building-2" class="w-5 h-5 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-3">Feels like hiring someone</h3>
           <p class="text-cool-gray leading-relaxed">If you have a company, spawning an OpenClaw agent feels like hiring a new employee. One that works every single day, learns your business, and costs a fraction of a human hire.</p>
         </div>
-        <div class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-slate-dark border border-cool-gray/10 rounded-xl p-8">
+          <div class="icon-box w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="brain" class="w-5 h-5 text-run-orange"></i>
           </div>
           <h3 class="font-bold text-lg mb-3">Grows with you</h3>
@@ -257,43 +407,43 @@
         <p class="text-cool-gray text-lg">Think of it as a colleague's job description. These are the tasks your OpenClaw agent handles on schedule, without being asked.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="pen-line" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Daily publications</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Writes and publishes original content every day across LinkedIn, X, Threads, Facebook, and Instagram. In your voice, on your schedule.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="message-square" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Daily engagement</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Posts comments, replies to comments on your posts, and gives likes. Engages with your audience and relevant accounts every single day.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="send" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Direct messages</h3>
           <p class="text-cool-gray text-sm leading-relaxed">DMs people and receives DMs. Your agent can hold conversations inside the platform, building real relationships on your behalf.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="target" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Lead generation</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Identifies and nurtures leads. Strategic connection requests, warm follow-ups, and conversations that move prospects closer to a call.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="search" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Research &amp; opportunities</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Does research, looks for business opportunities, and proposes ideas to grow your business. It pushes the ball forward every day.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="bar-chart-3" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Daily &amp; weekly reports</h3>
@@ -319,21 +469,21 @@
       </div>
       <div class="grid sm:grid-cols-3 gap-8">
         <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+          <div class="icon-box w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="check-circle" class="w-5 h-5 text-run-orange"></i>
           </div>
           <h3 class="font-bold mb-2">Approve before publish</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Every post your agent creates goes through you first. Review, edit, or approve with one click. Nothing goes live without your sign-off.</p>
         </div>
         <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+          <div class="icon-box w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="calendar-range" class="w-5 h-5 text-run-orange"></i>
           </div>
           <h3 class="font-bold mb-2">Control the schedule</h3>
           <p class="text-cool-gray text-sm leading-relaxed">See and manage your agent's daily schedule. Adjust posting times, engagement windows, and task priorities whenever you want.</p>
         </div>
         <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
+          <div class="icon-box w-10 h-10 rounded-lg bg-run-orange/10 flex items-center justify-center mb-4">
             <i data-lucide="file-text" class="w-5 h-5 text-run-orange"></i>
           </div>
           <h3 class="font-bold mb-2">See the work reports</h3>
@@ -353,28 +503,28 @@
       </div>
       <div class="grid sm:grid-cols-2 gap-8 max-w-3xl">
         <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="plus-circle" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Add more jobs</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Want your agent to handle email outreach? Monitor competitors? Write newsletters? Add new jobs to its schedule anytime.</p>
         </div>
         <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="graduation-cap" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Teach your colleague</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Give it feedback. Correct its tone. Share your strategy. Your agent learns and adapts. The more you invest, the sharper it gets.</p>
         </div>
         <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="puzzle" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">Connect more platforms</h3>
           <p class="text-cool-gray text-sm leading-relaxed">Start with one social channel. Expand to others as you grow. Your agent can handle multiple platforms, each with tailored content.</p>
         </div>
         <div class="fade-in">
-          <div class="w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
+          <div class="icon-box w-10 h-10 rounded-lg bg-terminal-green/10 flex items-center justify-center mb-4">
             <i data-lucide="infinity" class="w-5 h-5 text-terminal-green"></i>
           </div>
           <h3 class="font-bold mb-2">No ceiling</h3>
@@ -385,49 +535,54 @@
   </section>
 
   <!-- ======== HOW IT WORKS (CONFIGURING PROCESS) ======== -->
-  <section id="how-it-works" class="py-20 sm:py-28">
+  <section id="how-it-works" class="py-20 sm:py-28 bg-gradient-dark">
     <div class="max-w-6xl mx-auto px-4 sm:px-6">
       <div class="fade-in max-w-3xl mb-16">
         <p class="font-mono text-terminal-green text-sm mb-4 tracking-wide">// the spawning ritual</p>
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight mb-4">How we bring your colleague to life.</h2>
       </div>
       <div class="grid gap-6 max-w-3xl">
-        <div class="fade-in flex gap-5 items-start">
+        <div class="fade-in step-row flex gap-5 items-start">
           <div class="step-number">01</div>
+          <div class="step-connector"></div>
           <div>
             <h3 class="font-bold text-lg mb-1">Configuring</h3>
             <p class="text-cool-gray leading-relaxed">We configure a dedicated computer, set up all required API keys, and connect to the LLM. This is the infrastructure your agent will run on.</p>
           </div>
         </div>
-        <div class="fade-in flex gap-5 items-start">
+        <div class="fade-in step-row flex gap-5 items-start">
           <div class="step-number">02</div>
+          <div class="step-connector"></div>
           <div>
             <h3 class="font-bold text-lg mb-1">Accounts</h3>
             <p class="text-cool-gray leading-relaxed">We create and set up social media accounts for your OpenClaw agent, or connect it to your existing profiles.</p>
           </div>
         </div>
-        <div class="fade-in flex gap-5 items-start">
+        <div class="fade-in step-row flex gap-5 items-start">
           <div class="step-number">03</div>
+          <div class="step-connector"></div>
           <div>
             <h3 class="font-bold text-lg mb-1">Branding</h3>
             <p class="text-cool-gray leading-relaxed">We analyze your current brand voice and teach your agent how you sound. It learns your tone, your style, your audience. Your content will sound like you wrote it.</p>
           </div>
         </div>
-        <div class="fade-in flex gap-5 items-start">
+        <div class="fade-in step-row flex gap-5 items-start">
           <div class="step-number">04</div>
+          <div class="step-connector"></div>
           <div>
             <h3 class="font-bold text-lg mb-1">Control</h3>
             <p class="text-cool-gray leading-relaxed">We set up your personal mission control panel with all the information in one place. Content calendar, approval queue, reports, schedule management.</p>
           </div>
         </div>
-        <div class="fade-in flex gap-5 items-start">
+        <div class="fade-in step-row flex gap-5 items-start">
           <div class="step-number">05</div>
+          <div class="step-connector"></div>
           <div>
             <h3 class="font-bold text-lg mb-1">Spawning</h3>
             <p class="text-cool-gray leading-relaxed">We spawn your OpenClaw agent. Define its name, role, and mission. Introduce it to your company context, your goals, and your strategy. This is the moment your new colleague comes to life.</p>
           </div>
         </div>
-        <div class="fade-in flex gap-5 items-start">
+        <div class="fade-in step-row flex gap-5 items-start">
           <div class="step-number">06</div>
           <div>
             <h3 class="font-bold text-lg mb-1">Schedule</h3>
@@ -447,7 +602,7 @@
         <p class="text-cool-gray text-lg">A fixed flat fee to spawn your AI colleague. No monthly subscriptions for the setup. No hidden costs.</p>
       </div>
       <div class="max-w-lg">
-        <div class="fade-in bg-claw-black border-2 border-run-orange rounded-xl p-8 sm:p-10">
+        <div class="fade-in pricing-card bg-claw-black border-2 border-run-orange rounded-xl p-8 sm:p-10">
           <h3 class="font-bold text-2xl mb-2">Base Setup</h3>
           <p class="text-cool-gray mb-6">One OpenClaw agent, fully configured and ready to work with one social media channel.</p>
           <div class="mb-8">
@@ -465,7 +620,7 @@
             <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Content approval workflow</li>
             <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Daily &amp; weekly reporting</li>
           </ul>
-          <a href="#booking" class="block text-center bg-run-orange text-claw-black font-bold text-base px-6 py-4 rounded-lg hover:brightness-110 transition-all">
+          <a href="#booking" class="cta-primary block text-center bg-run-orange text-claw-black font-bold text-base px-6 py-4 rounded-lg hover:brightness-110 transition-all">
             Spawn your colleague
           </a>
           <p class="text-cool-gray text-xs text-center mt-4">Add more channels and jobs anytime as your business grows.</p>
@@ -513,29 +668,29 @@
         <p class="text-cool-gray text-lg">If you know consistent social media drives business but can't keep up, your OpenClaw agent handles it.</p>
       </div>
       <div class="grid sm:grid-cols-2 lg:grid-cols-4 gap-6">
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
             <i data-lucide="rocket" class="w-5 h-5 text-electric-blue"></i>
           </div>
           <h3 class="font-bold mb-1">Founders</h3>
           <p class="text-cool-gray text-sm">Building a personal brand while running a company. Your agent posts and engages daily while you focus on the business.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
             <i data-lucide="briefcase" class="w-5 h-5 text-electric-blue"></i>
           </div>
           <h3 class="font-bold mb-1">Consultants</h3>
           <p class="text-cool-gray text-sm">Your expertise deserves an audience. Your agent turns your knowledge into daily content that generates inbound leads.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
             <i data-lucide="users" class="w-5 h-5 text-electric-blue"></i>
           </div>
           <h3 class="font-bold mb-1">Agencies</h3>
           <p class="text-cool-gray text-sm">Scale client content without adding headcount. Deploy agents per client, each with their own voice and strategy.</p>
         </div>
-        <div class="fade-in bg-claw-black border border-cool-gray/10 rounded-xl p-6">
-          <div class="w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
+        <div class="fade-in card-hover bg-claw-black border border-cool-gray/10 rounded-xl p-6">
+          <div class="icon-box w-10 h-10 rounded-lg bg-electric-blue/10 flex items-center justify-center mb-4">
             <i data-lucide="trending-up" class="w-5 h-5 text-electric-blue"></i>
           </div>
           <h3 class="font-bold mb-1">Growth-minded</h3>
@@ -553,7 +708,7 @@
         <h2 class="text-3xl sm:text-4xl font-extrabold tracking-tight">Common questions.</h2>
       </div>
       <div class="space-y-4">
-        <details class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in faq-item bg-slate-dark border border-cool-gray/10 rounded-xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">Will it actually sound like me?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
@@ -562,7 +717,7 @@
             Yes. During setup, we analyze your existing content, your tone, your style. Your agent learns how you write and speak. And you approve every post before it goes live, so nothing publishes that doesn't sound like you.
           </div>
         </details>
-        <details class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in faq-item bg-slate-dark border border-cool-gray/10 rounded-xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">How is my data kept safe?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
@@ -571,7 +726,7 @@
             Your OpenClaw agent runs with scoped permissions. It only accesses what you explicitly authorize. Full audit logs track every action your agent takes, and you can revoke access at any time.
           </div>
         </details>
-        <details class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in faq-item bg-slate-dark border border-cool-gray/10 rounded-xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">How long until my agent is live?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
@@ -580,7 +735,7 @@
             48 hours after onboarding is complete. The first call is not onboarding. After the kickoff call, we begin the onboarding process: establishing connection to the computer and obtaining all required API keys. Once that's done, the 48-hour clock starts and your agent goes live.
           </div>
         </details>
-        <details class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in faq-item bg-slate-dark border border-cool-gray/10 rounded-xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">Which platforms are supported?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
@@ -589,7 +744,7 @@
             LinkedIn, X (Twitter), Threads, Facebook, and Instagram. Each gets content tailored to its format and audience. The base setup includes one channel, and you can add more anytime.
           </div>
         </details>
-        <details class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in faq-item bg-slate-dark border border-cool-gray/10 rounded-xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">Do I need to be technical?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
@@ -598,7 +753,7 @@
             Not at all. We handle the entire technical setup. You tell us about your business and brand, and we build your agent around it. The mission control panel is designed for non-technical users.
           </div>
         </details>
-        <details class="fade-in bg-slate-dark border border-cool-gray/10 rounded-xl group">
+        <details class="fade-in faq-item bg-slate-dark border border-cool-gray/10 rounded-xl group">
           <summary class="flex items-center justify-between p-6 cursor-pointer">
             <span class="font-semibold text-lg pr-4">Can I add more jobs later?</span>
             <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
@@ -622,7 +777,7 @@
         <p class="text-cool-gray text-lg mb-10 max-w-xl mx-auto">
           Book a 30-minute call. We'll learn your business, scope your agent, and get the spawning process started.
         </p>
-        <a href="#booking" class="inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-lg px-10 py-4 rounded-lg hover:brightness-110 transition-all mb-6">
+        <a href="#booking" class="cta-primary inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-lg px-10 py-4 rounded-lg hover:brightness-110 transition-all mb-6">
           <i data-lucide="calendar" class="w-5 h-5"></i>
           Book a kickoff call
         </a>
