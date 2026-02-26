@@ -220,6 +220,48 @@
       color: #0D0D0D;
     }
 
+    /* ── Step numbers ── */
+    .step-number {
+      width: 48px;
+      height: 48px;
+      border-radius: 12px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-family: 'JetBrains Mono', monospace;
+      font-weight: 700;
+      font-size: 1.1rem;
+      background: rgba(255, 107, 43, 0.1);
+      color: #FF6B2B;
+      flex-shrink: 0;
+      border: 1px solid rgba(255, 107, 43, 0.15);
+    }
+    .step-connector {
+      position: absolute;
+      left: 23px;
+      top: 56px;
+      bottom: -24px;
+      width: 2px;
+      background: linear-gradient(to bottom, rgba(255, 107, 43, 0.2), rgba(255, 107, 43, 0.05));
+    }
+    .step-row {
+      position: relative;
+    }
+
+    /* ── FAQ ── */
+    details summary::-webkit-details-marker {
+      display: none;
+    }
+    details summary {
+      list-style: none;
+    }
+    details[open] summary .faq-chevron {
+      transform: rotate(180deg);
+    }
+    .faq-chevron {
+      transition: transform 0.2s ease;
+    }
+
     /* ── Mobile refinements ── */
     @media (max-width: 640px) {
       .pill-button:hover { transform: none; }
@@ -234,6 +276,12 @@
       <a href="/" class="flex items-center gap-2 shrink-0">
         <img src="https://pub-debd1c0b305145b7885960d958419d52.r2.dev/runclaw/logo/runclaw-icon-transparent.png" alt="RunClaw" class="h-10 sm:h-12">
       </a>
+      <nav class="hidden md:flex items-center gap-8 text-sm text-cool-gray">
+        <a href="#what-it-does" class="hover:text-off-white transition-colors">What it does</a>
+        <a href="#how-it-works" class="hover:text-off-white transition-colors">How it works</a>
+        <a href="#pricing" class="hover:text-off-white transition-colors">Pricing</a>
+        <a href="#faq" class="hover:text-off-white transition-colors">FAQ</a>
+      </nav>
       <a href="https://calendly.com/run-claw/run-claw" target="_blank" class="pill-button inline-flex items-center gap-2 bg-run-orange text-claw-black font-semibold text-sm px-5 py-2 hover:brightness-110">
         Book Call
       </a>
@@ -372,6 +420,218 @@
     </div>
   </section>
 
+  <!-- ======== WHAT IT DOES ======== -->
+  <section id="what-it-does" class="py-24 sm:py-32 bg-slate-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="fade-in max-w-3xl mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
+          Here's what your agent <span class="text-run-orange">does every day.</span>
+        </h2>
+        <p class="text-cool-gray text-lg leading-relaxed">Think of it as a colleague's job description. These are the tasks your OpenClaw agent handles on schedule, without being asked.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="pen-line" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Daily publications</h3>
+          <p class="text-cool-gray leading-relaxed">Writes and publishes original content every day across your social channels. In your voice, on your schedule.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="message-square" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Daily engagement</h3>
+          <p class="text-cool-gray leading-relaxed">Posts comments, replies to comments on your posts, and gives likes. Engages with your audience every single day.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="send" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Direct messages</h3>
+          <p class="text-cool-gray leading-relaxed">DMs people and receives DMs. Your agent can hold conversations inside the platform, building real relationships.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="target" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Lead generation</h3>
+          <p class="text-cool-gray leading-relaxed">Identifies and nurtures leads. Strategic connection requests, warm follow-ups, and conversations that move prospects closer to a call.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="search" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Research &amp; opportunities</h3>
+          <p class="text-cool-gray leading-relaxed">Does research, looks for business opportunities, and proposes ideas to grow your business. It pushes the ball forward every day.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="bar-chart-3" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Daily &amp; weekly reports</h3>
+          <p class="text-cool-gray leading-relaxed">Reports to you every day with what was done, what's working, and what's next. Weekly strategic reviews with insights.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FOUNDATION ======== -->
+  <section id="foundation" class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="fade-in max-w-3xl mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
+          Grow it. <span class="text-run-orange">Teach it.</span> Make it yours.
+        </h2>
+        <p class="text-cool-gray text-lg leading-relaxed">The base setup gives you a fully operational AI colleague. But it's just the beginning. You can keep teaching and growing your agent, tailored to your business.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-8">
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="plus-circle" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Add more jobs</h3>
+          <p class="text-cool-gray leading-relaxed">Want your agent to handle email outreach? Monitor competitors? Write newsletters? Add new jobs to its schedule anytime.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="graduation-cap" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Teach your colleague</h3>
+          <p class="text-cool-gray leading-relaxed">Give it feedback. Correct its tone. Share your strategy. Your agent learns and adapts. The more you invest, the sharper it gets.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="puzzle" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Connect more platforms</h3>
+          <p class="text-cool-gray leading-relaxed">Start with one social channel. Expand to others as you grow. Your agent can handle multiple platforms, each with tailored content.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="infinity" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">No ceiling</h3>
+          <p class="text-cool-gray leading-relaxed">Your OpenClaw agent is yours. There's no limit to what you can build on top of it. Grow your AI colleague as your business grows.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== HOW IT WORKS ======== -->
+  <section id="how-it-works" class="py-24 sm:py-32 bg-slate-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="fade-in max-w-3xl mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
+          How we bring your <span class="text-run-orange">colleague to life.</span>
+        </h2>
+      </div>
+      <div class="space-y-6">
+        <div class="fade-in step-row card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="flex gap-5 items-start">
+            <div class="step-number">01</div>
+            <div class="step-connector"></div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Configuring</h3>
+              <p class="text-cool-gray leading-relaxed">We configure a dedicated computer, set up all required API keys, and connect to the LLM. This is the infrastructure your agent will run on.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in step-row card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="flex gap-5 items-start">
+            <div class="step-number">02</div>
+            <div class="step-connector"></div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Accounts</h3>
+              <p class="text-cool-gray leading-relaxed">We create and set up social media accounts for your OpenClaw agent, or connect it to your existing profiles.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in step-row card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="flex gap-5 items-start">
+            <div class="step-number">03</div>
+            <div class="step-connector"></div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Branding</h3>
+              <p class="text-cool-gray leading-relaxed">We analyze your current brand voice and teach your agent how you sound. It learns your tone, your style, your audience. Your content will sound like you wrote it.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in step-row card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="flex gap-5 items-start">
+            <div class="step-number">04</div>
+            <div class="step-connector"></div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Control</h3>
+              <p class="text-cool-gray leading-relaxed">We set up your personal mission control panel with all the information in one place. Content calendar, approval queue, reports, schedule management.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in step-row card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="flex gap-5 items-start">
+            <div class="step-number">05</div>
+            <div class="step-connector"></div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Spawning</h3>
+              <p class="text-cool-gray leading-relaxed">We spawn your OpenClaw agent. Define its name, role, and mission. Introduce it to your company context, your goals, and your strategy. This is the moment your new colleague comes to life.</p>
+            </div>
+          </div>
+        </div>
+        <div class="fade-in step-row card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="flex gap-5 items-start">
+            <div class="step-number">06</div>
+            <div>
+              <h3 class="font-bold text-lg mb-2">Schedule</h3>
+              <p class="text-cool-gray leading-relaxed">We define daily jobs for your OpenClaw agent and fill in its personal schedule. Publishing times, engagement windows, research blocks, reporting cadence.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== BUILT FOR ======== -->
+  <section id="built-for" class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="fade-in max-w-3xl mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
+          Built for people <span class="text-run-orange">who run things.</span>
+        </h2>
+        <p class="text-cool-gray text-lg leading-relaxed">If you know consistent social media drives business but can't keep up, your OpenClaw agent handles it.</p>
+      </div>
+      <div class="grid sm:grid-cols-2 gap-6">
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="rocket" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Founders</h3>
+          <p class="text-cool-gray leading-relaxed">Building a personal brand while running a company. Your agent posts and engages daily while you focus on the business.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="briefcase" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Consultants</h3>
+          <p class="text-cool-gray leading-relaxed">Your expertise deserves an audience. Your agent turns your knowledge into daily content that generates inbound leads.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="users" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Agencies</h3>
+          <p class="text-cool-gray leading-relaxed">Scale client content without adding headcount. Deploy agents per client, each with their own voice and strategy.</p>
+        </div>
+        <div class="fade-in card-subtle bg-claw-black rounded-2xl p-8">
+          <div class="w-12 h-12 rounded-xl bg-slate-dark flex items-center justify-center mb-4">
+            <i data-lucide="trending-up" class="w-6 h-6 text-run-orange"></i>
+          </div>
+          <h3 class="font-bold text-lg mb-2">Growth-minded</h3>
+          <p class="text-cool-gray leading-relaxed">Anyone who knows consistent social media equals growth but can't keep up with the daily grind.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
   <!-- ======== PRICING ======== -->
   <section id="pricing" class="py-24 sm:py-32 bg-slate-dark">
     <div class="max-w-4xl mx-auto px-4 sm:px-6">
@@ -382,26 +642,174 @@
         <p class="text-cool-gray text-lg leading-relaxed">A one-time setup fee to spawn your colleague. Optional monthly support to keep them optimized and scaling.</p>
       </div>
       
-      <!-- Single Pricing Card -->
-      <div class="fade-in max-w-lg mx-auto relative">
-        <div class="popular-badge">Most Popular</div>
-        <div class="card-subtle bg-claw-black rounded-2xl p-8 sm:p-10">
-          <h3 class="font-bold text-2xl mb-2">Base Setup</h3>
-          <p class="text-cool-gray mb-6">One OpenClaw agent, fully configured and ready to work.</p>
-          <div class="mb-8">
-            <span class="text-5xl font-extrabold">$1,500</span>
-            <span class="text-cool-gray text-lg ml-2">one-time</span>
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-8">
+        <!-- Base Setup -->
+        <div class="fade-in relative">
+          <div class="popular-badge">Most Popular</div>
+          <div class="card-subtle bg-claw-black rounded-2xl p-8 sm:p-10">
+            <h3 class="font-bold text-2xl mb-2">Base Setup</h3>
+            <p class="text-cool-gray mb-6">One OpenClaw agent, fully configured and ready to work.</p>
+            <div class="mb-8">
+              <span class="text-5xl font-extrabold">$1,500</span>
+              <span class="text-cool-gray text-lg ml-2">one-time</span>
+            </div>
+            <ul class="space-y-3 text-sm text-cool-gray mb-8">
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Full infrastructure setup</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Brand voice training</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Agent spawning &amp; scheduling</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Daily &amp; weekly reporting</li>
+            </ul>
+            <a href="https://calendly.com/run-claw/run-claw" target="_blank" class="pill-button w-full inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-6 py-4 hover:brightness-110">
+              Book your setup call
+            </a>
           </div>
-          <ul class="space-y-3 text-sm text-cool-gray mb-8">
-            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Full infrastructure setup</li>
-            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Brand voice training</li>
-            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Agent spawning & scheduling</li>
-            <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Daily & weekly reporting</li>
-          </ul>
-          <a href="https://calendly.com/run-claw/run-claw" target="_blank" class="pill-button w-full inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-6 py-4 hover:brightness-110">
-            Book your setup call
-          </a>
         </div>
+
+        <!-- Monthly Support -->
+        <div class="fade-in">
+          <div class="card-subtle bg-claw-black rounded-2xl p-8 sm:p-10">
+            <h3 class="font-bold text-2xl mb-2">Monthly Support</h3>
+            <p class="text-cool-gray mb-6">Ongoing management and optimization to keep your agent performing at its best.</p>
+            <div class="mb-8">
+              <span class="text-5xl font-extrabold">$1,000</span>
+              <span class="text-cool-gray text-lg ml-2">per month</span>
+            </div>
+            <ul class="space-y-3 text-sm text-cool-gray mb-8">
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Performance monitoring &amp; reporting</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Inoculation (security hardening)</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Weekly checkups</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Updates to latest version</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Memory backup</li>
+              <li class="flex gap-2"><i data-lucide="check" class="w-4 h-4 text-terminal-green mt-0.5 shrink-0"></i> Proactive issue resolution</li>
+            </ul>
+            <a href="https://calendly.com/run-claw/run-claw" target="_blank" class="pill-button w-full inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-base px-6 py-4 hover:brightness-110">
+              Discuss support options
+            </a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== TIMELINE ======== -->
+  <section id="timeline" class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="fade-in max-w-3xl mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
+          Live within <span class="text-run-orange">48 hours.</span>
+        </h2>
+        <p class="text-cool-gray text-lg leading-relaxed mb-8">
+          After onboarding is complete, your agent is live and working within 48 hours.
+        </p>
+      </div>
+      <div class="card-subtle bg-claw-black rounded-2xl p-8 sm:p-10">
+        <h3 class="font-bold text-lg mb-6">How the timeline works:</h3>
+        <div class="space-y-6">
+          <div class="flex gap-6">
+            <div class="w-20 shrink-0">
+              <span class="font-mono text-run-orange font-bold">Call</span>
+            </div>
+            <p class="text-cool-gray leading-relaxed">30-minute kickoff call. We learn your business, goals, and brand voice. We scope the deployment.</p>
+          </div>
+          <div class="flex gap-6">
+            <div class="w-20 shrink-0">
+              <span class="font-mono text-run-orange font-bold">Onboard</span>
+            </div>
+            <p class="text-cool-gray leading-relaxed">After the call, we begin onboarding: establishing connection to the computer and obtaining all required API keys and account access. This step involves your participation.</p>
+          </div>
+          <div class="flex gap-6">
+            <div class="w-20 shrink-0">
+              <span class="font-mono text-terminal-green font-bold">48h</span>
+            </div>
+            <p class="text-cool-gray leading-relaxed">Once onboarding is complete, the 48-hour clock starts. We configure, brand, spawn, and schedule your agent. Your new colleague starts working.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FAQ ======== -->
+  <section id="faq" class="py-24 sm:py-32 bg-slate-dark">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6">
+      <div class="fade-in mb-16">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
+          <span class="text-run-orange">Common</span> questions.
+        </h2>
+      </div>
+      <div class="space-y-4">
+        <details class="fade-in card-subtle bg-claw-black rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">Will it actually sound like me?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
+            Yes. During setup, we analyze your existing content, your tone, your style. Your agent learns how you write and speak. And you approve every post before it goes live, so nothing publishes that doesn't sound like you.
+          </div>
+        </details>
+        <details class="fade-in card-subtle bg-claw-black rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">How is my data kept safe?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
+            Your OpenClaw agent runs with scoped permissions. It only accesses what you explicitly authorize. Full audit logs track every action your agent takes, and you can revoke access at any time.
+          </div>
+        </details>
+        <details class="fade-in card-subtle bg-claw-black rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">How long until my agent is live?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
+            48 hours after onboarding is complete. The first call is not onboarding. After the kickoff call, we begin the onboarding process: establishing connection to the computer and obtaining all required API keys. Once that's done, the 48-hour clock starts and your agent goes live.
+          </div>
+        </details>
+        <details class="fade-in card-subtle bg-claw-black rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">Which platforms are supported?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
+            LinkedIn, X (Twitter), Threads, Facebook, and Instagram. Each gets content tailored to its format and audience. The base setup includes one channel, and you can add more anytime.
+          </div>
+        </details>
+        <details class="fade-in card-subtle bg-claw-black rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">Do I need to be technical?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
+            Not at all. We handle the entire technical setup. You tell us about your business and brand, and we build your agent around it. The mission control panel is designed for non-technical users.
+          </div>
+        </details>
+        <details class="fade-in card-subtle bg-claw-black rounded-2xl group">
+          <summary class="flex items-center justify-between p-6 cursor-pointer">
+            <span class="font-semibold text-lg pr-4">Can I add more jobs later?</span>
+            <i data-lucide="chevron-down" class="w-5 h-5 text-cool-gray faq-chevron shrink-0"></i>
+          </summary>
+          <div class="px-6 pb-6 text-cool-gray leading-relaxed">
+            Absolutely. The base setup is a foundation. You can add more social channels, new types of tasks, and grow your agent's capabilities over time. Think of it as onboarding a new employee who keeps learning.
+          </div>
+        </details>
+      </div>
+    </div>
+  </section>
+
+  <!-- ======== FINAL CTA ======== -->
+  <section id="final-cta" class="py-24 sm:py-32">
+    <div class="max-w-4xl mx-auto px-4 sm:px-6 text-center">
+      <div class="fade-in">
+        <h2 class="font-serif text-3xl sm:text-4xl lg:text-5xl font-normal tracking-tight mb-6">
+          Your competitors post every day.<br>
+          <span class="text-run-orange">Your colleague can too.</span>
+        </h2>
+        <p class="text-cool-gray text-lg mb-10 max-w-xl mx-auto">
+          Book a 30-minute call. We'll learn your business, scope your agent, and get the spawning process started.
+        </p>
+        <a href="https://calendly.com/run-claw/run-claw" target="_blank" class="pill-button inline-flex items-center justify-center gap-2 bg-run-orange text-claw-black font-bold text-lg px-10 py-5 hover:brightness-110">
+          <i data-lucide="calendar" class="w-5 h-5"></i>
+          Book a kickoff call
+        </a>
       </div>
     </div>
   </section>
